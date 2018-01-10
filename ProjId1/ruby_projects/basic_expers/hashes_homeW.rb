@@ -42,8 +42,9 @@ def iterate_with_user(cities_telscode)
   0) Display all city code pares
   1) Display some city code
   2) Add new city-code pare
-  4) Display all city names"
-  # 3) Exit the programm - (not implemented yet)
+  3) Display all city names
+  4) Exit the programm"
+
   what_to_do = gets.chomp.to_i
 
   if(what_to_do == 1)
@@ -52,8 +53,10 @@ def iterate_with_user(cities_telscode)
     add_new_city_code_pare(cities_telscode)
   elsif (what_to_do == 0)
     display_all_city_code_pares(cities_telscode)
-  elsif (what_to_do == 4)
+  elsif (what_to_do == 3)
     display_all_city_names(cities_telscode)
+  elsif (what_to_do == 4)
+    return answer = "y"
   else
     puts "Choose between 1 and 2"
   end
@@ -63,10 +66,9 @@ end
 # while(doRunThisProg)
 
 loop do
-  puts "Do you want to lookup a city name? (y/n)"
-  doLookUp = gets.chomp
-  if doLookUp != "y"
+  answer = iterate_with_user(cities_telscode)
+
+  if answer == "y"
     break
   end
-  iterate_with_user(cities_telscode)
 end
